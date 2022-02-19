@@ -9,6 +9,7 @@ import {
 import React from 'react';
 import { useTailwind } from 'tailwind-rn';
 import { Icon } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
 
 const data = [
   {
@@ -27,6 +28,7 @@ const data = [
 
 const NavOptions = () => {
   const tw = useTailwind();
+  const navigation = useNavigation();
 
   return (
     <FlatList
@@ -36,6 +38,7 @@ const NavOptions = () => {
       renderItem={({ item }) => {
         return (
           <TouchableOpacity
+            onPress={() => navigation.navigate(item.screen)}
             style={tw('p-2 pl-6 pb-8 pt-4 bg-gray-200 m-2 w-40')}
           >
             <View>
